@@ -1,6 +1,6 @@
 ## Lame Write-Up
 
-Diffculty: Easy
+Difficulty: Easy
 
 ```
 nmap 10.10.10.3 -T4 -Pn
