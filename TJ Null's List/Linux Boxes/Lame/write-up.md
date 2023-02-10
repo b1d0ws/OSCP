@@ -1,1 +1,0 @@
-Lame Write-Up
