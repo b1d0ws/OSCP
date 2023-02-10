@@ -18,6 +18,16 @@ nmap 10.10.10.3 -T4 -Pn -p 139,445 -A
 
 <br>
 
+We can also do a smbmap to see some SMB informations.
+
+```
+smbmap -H 10.10.10.3
+```
+
+![smbmap](https://user-images.githubusercontent.com/58514930/218116219-24662f2b-b212-4740-9db2-6a6d77e89a0e.png)
+
+<br>
+
 Searching for Samba 3.0.20-Debian, we found this [exploit](https://github.com/amdsyad/exploit-smb-3.0.20/blob/master/exploit-smb-3.0.20.py).
 
 ![exploit](https://user-images.githubusercontent.com/58514930/218098982-3eef727f-c1ba-4790-84bd-758fed3e847f.png)
