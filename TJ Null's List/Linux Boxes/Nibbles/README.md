@@ -16,6 +16,8 @@ Checking the source code we find a nibbleblog directory.
 
 ![sourceCode](https://user-images.githubusercontent.com/58514930/218508943-313e1456-1ad3-4b5e-920a-c53e5388b886.png)
 
+<br>
+
 Searching for nibbleblog we discover two important things:
 1. This CMS is vulnerable to Arbitrary File Upload (CVE-2015-6967).
 2. The default credentials of it is admin:nibbles
