@@ -12,7 +12,7 @@ rustscan -a armageddon.htb --ulimit 5000 -- -A -sV -sC
 
 <br>
 
-Looking at the web page we see that armaggedon is being used.
+Looking at the web page source code we see that Druppal CMS is being used.
 
 ![armageddon](https://user-images.githubusercontent.com/58514930/219379870-398f8ead-25fd-4641-926c-8ca3394d23cf.png)
 
@@ -24,7 +24,7 @@ Searching about we find a [possible exploit](https://github.com/dreadlocked/Drup
 
 <br>
 
-Armaggedon has a default configuration file called settings.php. Reading it, we discover the MySQL credentials.
+Druppal has a default configuration file called settings.php. Reading it, we discover the MySQL credentials.
 
 ![settings](https://user-images.githubusercontent.com/58514930/219380734-6882fd89-3cd9-45e5-a6eb-0f572356509d.png)
 
