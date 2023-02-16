@@ -54,7 +54,7 @@ Inside this chat system, there is a bot called recyclops that retrieve us some f
 
 Searching inside the files we find credentials in ../hubot/.env.  
 
-You could also enumerate the ../../../../../proc/self/environ file to get this information.  
+> You could also enumerate the ../../../../../proc/self/environ file to get this information.  
 
 ![recyclopsLFI](https://user-images.githubusercontent.com/58514930/219441141-800b7c84-d461-4741-9566-e0b042f58f78.png)
 
