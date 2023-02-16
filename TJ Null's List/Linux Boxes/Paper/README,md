@@ -1,0 +1,9 @@
+## Paper
+
+Difficulty: Easy
+
+### User Flag
+
+```
+rustscan -a paper.htb --ulimit 5000 -- -A -sV -sC
+```
