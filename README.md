@@ -3,7 +3,7 @@
 ### Study Progress
 
 #### TJ Null's List
-Linux Machines - 11/64  
+Linux Machines - 12/64  
 Windows Machines - 00/41  
 
 #### Buffer Overflow TryHackMe
