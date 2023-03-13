@@ -4,7 +4,7 @@
 
 #### TJ Null's List
 Linux Machines - 13/64  
-Windows Machines - 00/41  
+Windows Machines - 01/41  
 
 #### Buffer Overflow TryHackMe
 
