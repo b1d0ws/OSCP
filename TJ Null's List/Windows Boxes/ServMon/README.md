@@ -46,4 +46,16 @@ crackmapexec smb 10.10.10.184 -u nadine -p password.txt
 
 ![smbEnumeration](https://user-images.githubusercontent.com/58514930/234737227-a57d936d-bd0d-4e52-b613-381a948a096f.png)
 
+<br>
+
 Just login into SSH with this credentials and get the user flag.
+
+### Root Flag
+
+Accessing port 8443, NSClient++ 0.5.2.35 is being used.
+
+There is a [public exploit](https://www.exploit-db.com/exploits/46802) to this.
+
+Lets follow it, so first we find the password.
+
+
