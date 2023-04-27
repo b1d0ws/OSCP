@@ -1,6 +1,9 @@
 ## ServMon
 
 Difficulty: Easy
+
+Topics: Open FTP, NVMS, NSClient++, Port Forwarding
+
 https://app.hackthebox.com/machines/ServMon
 
 ### User Flag
@@ -54,8 +57,50 @@ Just login into SSH with this credentials and get the user flag.
 
 Accessing port 8443, NSClient++ 0.5.2.35 is being used.
 
+![port8443](https://user-images.githubusercontent.com/58514930/234896253-91885da8-88c2-43d3-aeb0-2da4583ad67f.png)
+
+<br>
+
 There is a [public exploit](https://www.exploit-db.com/exploits/46802) to this.
 
-Lets follow it, so first we find the password.
+Lets follow it, first finding the password.
 
+```
+nscp web -- password --display
+```
 
+![nsclientPassword](https://user-images.githubusercontent.com/58514930/234896486-62f63899-d999-4be0-9b64-9185b56934e7.png)
+
+<br>
+
+Only IP 127.0.0.1 is allowed to login, so we need to port forward the website to our machine.
+
+```
+ssh -L 8443:127.0.0.1:8443 nadine@10.10.10.184
+```
+
+![portForwarding](https://user-images.githubusercontent.com/58514930/234899001-922b4c8d-c737-4ba7-9e98-7e7bc3006aea.png)
+
+<br>
+
+Next, we upload evil.bat and nc.exe to the victim on C:\Temp.
+
+For some reason only specific nc worked, the others was blocked by the system. I used [this one](https://github.com/int0x33/nc.exe/blob/master/nc64.exe).
+
+![uploadingFiles](https://user-images.githubusercontent.com/58514930/234897592-da8736c7-d85b-4c02-ba4a-bc9ec6822e64.png)
+
+<br>
+
+Now we need to create the script in the website.
+
+![scripts](https://user-images.githubusercontent.com/58514930/234897797-69a67c06-dbe3-41c5-b687-c548976aad7b.png)
+
+![savingScript](https://user-images.githubusercontent.com/58514930/234897887-365bc0d6-9e59-4360-b3a1-51c6dabe9c68.png)
+
+<br>
+
+Reaload it and you should get the system shell.
+
+![reload](https://user-images.githubusercontent.com/58514930/234898133-3d8e9a97-95ea-4229-afa2-04fd693ceb9f.png)
+
+![systemShell](https://user-images.githubusercontent.com/58514930/234898295-70dd0f92-f5dd-407e-a269-0d10ade30994.png)
