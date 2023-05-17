@@ -1,4 +1,4 @@
-## Horizntall
+## Horizontall
 
 Difficulty: Easy
 
