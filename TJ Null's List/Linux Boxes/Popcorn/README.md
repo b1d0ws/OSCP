@@ -5,7 +5,7 @@ Difficulty: Medium
 ### User Flag
 
 ```
-rustscan -a popcorn.htb --ulimit 500 -- -A -sV -sC -oN nmap.txt
+rustscan -a popcorn.htb --ulimit 5000 -- -A -sV -sC -oN nmap.txt
 ```
 
 ![rustscan](https://github.com/b1d0ws/OSCP/assets/58514930/64c88446-fed3-411d-9f1a-b550ea19881e)
