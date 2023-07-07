@@ -3,7 +3,7 @@
 ### Study Progress
 
 #### TJ Null's List
-Linux Machines - 30/64  
+Linux Machines - 31/64  
 Windows Machines - 03/41   
 
 #### Compromising Active Directory TryHackMe
