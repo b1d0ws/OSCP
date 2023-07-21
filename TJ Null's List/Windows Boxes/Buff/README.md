@@ -1,6 +1,6 @@
 ## Buff
 
-Difficulty: Easy
+Difficulty: Easy  
 https://app.hackthebox.com/machines/Buff
 
 ### User Flag
