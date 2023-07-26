@@ -8,7 +8,7 @@ Windows Machines - 03/34
 
 #### Compromising Active Directory TryHackMe
 * Active Directory Basics ✅
-* Breaching Active Directory  
+* Breaching Active Directory ✅
 * Enumerating Active Directory  
 * Lateral Movement and Pivoting  
 * Exploiting Active Directory  
