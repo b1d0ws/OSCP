@@ -10,7 +10,7 @@ Windows Machines - 04/34
 * Active Directory Basics ✅
 * Breaching Active Directory ✅
 * Enumerating Active Directory ✅
-* Lateral Movement and Pivoting  
+* Lateral Movement and Pivoting ✅
 * Exploiting Active Directory  
 * Persisting Active Directory  
 * Credentials Harvesting  
