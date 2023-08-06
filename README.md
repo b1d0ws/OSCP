@@ -23,3 +23,6 @@ Windows Machines - 04/34
 
 #### Others
 [RazorBlack](https://tryhackme.com/room/raz0rblack)
+
+#### Useful
+https://blog.mkiesel.ch/posts/oscp_adcheatsheet/
