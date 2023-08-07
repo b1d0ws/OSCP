@@ -11,7 +11,7 @@ Windows Machines - 04/34
 * Breaching Active Directory ✅
 * Enumerating Active Directory ✅
 * Lateral Movement and Pivoting ✅
-* Exploiting Active Directory  
+* Exploiting Active Directory ✅
 * Persisting Active Directory  
 * Credentials Harvesting  
 
