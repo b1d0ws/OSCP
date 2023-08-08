@@ -16,7 +16,8 @@ Windows Machines - 04/34
 * Credentials Harvesting  
 
 #### HTB Active Directory Track
-
+* Active Directory Enumeration & Attacks
+* Attacking Enterprise Networks
 
 #### OffSec Training
 
