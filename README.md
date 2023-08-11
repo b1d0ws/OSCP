@@ -12,8 +12,8 @@ Windows Machines - 04/34
 * Enumerating Active Directory ✅
 * Lateral Movement and Pivoting ✅
 * Exploiting Active Directory ✅
-* Persisting Active Directory  
-* Credentials Harvesting  
+* Persisting Active Directory ✅
+* Credentials Harvesting ✅
 
 #### HTB Active Directory Track
 * Active Directory Enumeration & Attacks
