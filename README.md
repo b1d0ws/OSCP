@@ -4,7 +4,7 @@
 
 #### TJ Null's List
 Linux Machines - 41/57  
-Windows Machines - 07/34  
+Windows Machines - 11/34  
 
 #### Compromising Active Directory TryHackMe
 * Active Directory Basics ✅
