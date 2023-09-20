@@ -15,15 +15,17 @@ Windows Machines - 21/34
 * Persisting Active Directory ✅
 * Credentials Harvesting ✅
 
+#### Offensive Pentesting TryHackMe
+* Relevant
+* Internal
+* Razor Black
+
 #### HTB Active Directory Track
-* Active Directory Enumeration & Attacks
+* Active Directory Enumeration & Attacks ✅
 * Attacking Enterprise Networks
 
 #### OffSec Training
 
-
-#### Others
-[RazorBlack](https://tryhackme.com/room/raz0rblack)
 
 #### Useful
 https://blog.mkiesel.ch/posts/oscp_adcheatsheet/
