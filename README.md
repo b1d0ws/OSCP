@@ -22,7 +22,7 @@ Windows Machines - 21/34
 
 #### HTB Active Directory Track
 * Active Directory Enumeration & Attacks ✅
-* Attacking Enterprise Networks
+* Attacking Enterprise Networks ✅
 
 #### OffSec Training
 
