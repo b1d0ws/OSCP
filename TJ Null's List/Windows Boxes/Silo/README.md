@@ -20,7 +20,7 @@ We first need to find SIDs and brute force users.
 # Find sids
 python3 odat.py sidguesser -s silo.htb -p 1521 --sids-file=resources/sids.txt
 
-Brute force credentials.
+# Brute force credentials
 python3 odat.py passwordguesser -s silo.htb -d XE
 ```
 
