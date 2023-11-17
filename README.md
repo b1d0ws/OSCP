@@ -16,7 +16,7 @@
 * Credentials Harvesting ✅
 
 #### Offensive Pentesting TryHackMe
-* Relevant
+* Relevant ✅
 * Internal
 * Razor Black
 
