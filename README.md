@@ -3,8 +3,8 @@
 ### Study Progress
 
 #### TJ Null's List
-Linux Machines - 45/57  
-Windows Machines - 23/34  
+* 45 Linux Machines ✅
+* 23 Windows Machines ✅ 
 
 #### Compromising Active Directory TryHackMe
 * Active Directory Basics ✅
@@ -25,7 +25,8 @@ Windows Machines - 23/34
 * Attacking Enterprise Networks ✅
 
 #### OffSec Training
-
-
-#### Useful
-https://blog.mkiesel.ch/posts/oscp_adcheatsheet/
+* Challenge 1 - Medtech ✅
+* Challenge 2 - Relia ✅
+* Challenge 4 - OSCP A ✅
+* Challenge 5 - OSCP B ✅
+* Challenge 6 - OSCP C ✅
