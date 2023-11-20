@@ -17,8 +17,8 @@
 
 #### Offensive Pentesting TryHackMe
 * Relevant ✅
-* Internal
-* Razor Black
+* Internal ✅
+* Razor Black ✅
 
 #### HTB Active Directory Track
 * Active Directory Enumeration & Attacks ✅
