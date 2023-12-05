@@ -2,7 +2,7 @@
 
 ### Study Progress
 
-#### TJ Null's List
+#### TJ Null List
 * 45 Linux Machines ✅
 * 23 Windows Machines ✅ 
 
